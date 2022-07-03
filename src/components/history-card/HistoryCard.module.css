@@ -1,0 +1,33 @@
+.root {
+  --top-padding: 16px;
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  min-width: 160px;
+  height: calc(100% - var(--top-padding));
+  margin: 8px;
+  padding: var(--top-padding);
+  background: #444;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image {
+  width: 120px;
+  background: blue;
+}
+
+.noImage {
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: #DDD;
+  border-radius: 50%;
+}
+
+.name {
+  text-align: center;
+  color: white;
+}

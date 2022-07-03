@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "jsx": "preserve",
+  },
+  "include": [
+    "src",
+    "typings.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

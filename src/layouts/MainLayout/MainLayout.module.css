@@ -1,0 +1,26 @@
+.root {
+  --top-padding: 30px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: var(--top-padding) 10%;
+  min-height: calc(100vh - 2 * var(--top-padding));
+  background-color: #282c34;
+  border-radius: 0;
+}
+
+.videoBlock {
+  width: 65%;
+  height: 60vh;
+  background: black;
+}
+
+.detectionBlock {
+  width: calc(35% - 8px) ;
+}
+
+.spinnerBlock {
+  width: 100%;
+  height: 30vh;
+}
