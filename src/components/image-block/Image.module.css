@@ -1,0 +1,13 @@
+.image {
+  background-size: 'cover';
+  background-repeat: no-repeat;
+  background-position: 'center';
+}
+
+.noImage {
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: #DDD;
+  border-radius: 50%;
+}

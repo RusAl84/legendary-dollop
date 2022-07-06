@@ -3,10 +3,11 @@
 
   box-sizing: border-box;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  flex-direction: column;
-  min-width: 160px;
+  min-width: 300px;
+  width: 350px;
   height: calc(100% - var(--top-padding));
   margin: 8px;
   padding: var(--top-padding);
@@ -15,16 +16,8 @@
 }
 
 .image {
-  width: 120px;
-  background: blue;
-}
-
-.noImage {
-  padding: 10px;
-  width: 100px;
-  height: 100px;
-  background-color: #DDD;
-  border-radius: 50%;
+  max-width: 35%;
+  /* background: blue; */
 }
 
 .name {

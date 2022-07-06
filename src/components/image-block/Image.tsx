@@ -1,3 +1,5 @@
+import cc from 'classnames';
+import noImage from './assets/no-image.svg';
 import styles from './Image.module.css';
 
 type ImageProps = {
@@ -9,7 +11,11 @@ type ImageProps = {
 function Image(props: ImageProps) {
   const {className, src, alt} = props;
   return (
-    <img className={className} src={src} alt={alt || 'Image'} />
+    <img 
+      className={cc(className, !src && styles.noImage)} 
+      src={src || noImage} 
+      alt={alt || 'Image'} 
+    />
   );
 }
 

@@ -4,20 +4,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: var(--top-padding) 10%;
+  padding: var(--top-padding) 15%;
   min-height: calc(100vh - 2 * var(--top-padding));
   background-color: #282c34;
   border-radius: 0;
 }
 
 .videoBlock {
-  width: 65%;
-  height: 60vh;
+  width: 960px;
+  height: 540px;
   background: black;
 }
 
 .detectionBlock {
-  width: calc(35% - 8px) ;
+  margin: 0;
 }
 
 .spinnerBlock {

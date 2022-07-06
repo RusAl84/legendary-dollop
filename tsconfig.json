@@ -5,7 +5,7 @@
   },
   "include": [
     "src",
-    "typings.d.ts"
+    "declaration.d.ts"
   ],
   "exclude": [
     "node_modules"
