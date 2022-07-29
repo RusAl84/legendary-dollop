@@ -11,13 +11,14 @@
 }
 
 .videoBlock {
-  width: 960px;
-  height: 540px;
+  width: 60%;
+  height: 60vh;
   background: black;
 }
 
 .detectionBlock {
-  margin: 0;
+  margin: 16px;
+  width: 20%;
 }
 
 .spinnerBlock {
