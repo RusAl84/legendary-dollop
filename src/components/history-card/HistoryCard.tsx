@@ -8,10 +8,11 @@ type HistoryCardProps = {
   personPhoto?: string,
   cadr?: string,
   name: string,
+  desc?: string,
 }
 
 function HistoryCard(props: HistoryCardProps) {
-  const {className, personPhoto, cadr, name} = props;
+  const {className, personPhoto, cadr, name, desc} = props;
   return (
     <section className={cc(className, styles.root)}>
       <div className={styles.imageBox}>
@@ -20,7 +21,10 @@ function HistoryCard(props: HistoryCardProps) {
       <div className={styles.imageBox}>
         <Image className={styles.image} src={personPhoto} />
       </div>
+      <div>
       <p className={styles.name}>{name}</p>
+      <p className={styles.name}>{desc}</p>
+      </div>
     </section>
   );
 }

@@ -36,13 +36,23 @@ const historyItems: historyItem[] = [
 function MainLayout() {
   return (
     <main className={styles.root}>
-      <LiveStream className={styles.videoBlock} src='http://127.0.0.1:5000/video_feed' />
-      <HistoryCard
+      
+      <LiveStream className={styles.videoBlock}  />
+      <div>.
+      {/* <HistoryCard
         className={styles.detectionBlock}
         personPhoto={photo2} 
         name='Русаков Алексей' 
+      />  */}
+      </div>
+      <HistoryCard
+        className={styles.detectionBlock}
+        personPhoto="http://localhost:5000/photo/Rusakov.jpg"
+        cadr="http://localhost:5000/photo/test.jpg"
+        name='Русаков Алексей Михайлович' 
+        desc="Директор проекта Персона"
       />
-      <HorizontalScroll className={styles.spinnerBlock}>
+      {/* <HorizontalScroll className={styles.spinnerBlock}>
         {historyItems.map((item, index) => {
           const {image, name} = item;
           return (
@@ -53,7 +63,7 @@ function MainLayout() {
           />
           );
         })}
-      </HorizontalScroll>
+      </HorizontalScroll> */}
     </main>
   );
 }

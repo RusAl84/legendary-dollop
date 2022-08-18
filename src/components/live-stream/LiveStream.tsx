@@ -3,16 +3,13 @@ import Webcam from "react-webcam";
 
 
 type LiveStream = {
-  className?: string,
-  src: string
+  className?: string
 }
 
 function LiveStream(props: LiveStream) {
-  const {className, src} = props;
+  const {className} = props;
   return (
-    // <img className={className} src={src} width="100%"></img>
-    <Webcam />
-    // <video className={className} src={src} autoPlay />
+    <Webcam className={className} />
   );
 }
 
