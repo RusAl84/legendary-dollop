@@ -36,7 +36,7 @@ const historyItems: historyItem[] = [
 function MainLayout() {
   return (
     <main className={styles.root}>
-      <LiveStream className={styles.videoBlock} src='' />
+      <LiveStream className={styles.videoBlock} src='http://127.0.0.1:5000/video_feed' />
       <HistoryCard
         personPhoto={photo2} 
         name='Русаков Алексей' 
