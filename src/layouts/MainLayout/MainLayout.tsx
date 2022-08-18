@@ -38,6 +38,7 @@ function MainLayout() {
     <main className={styles.root}>
       <LiveStream className={styles.videoBlock} src='http://127.0.0.1:5000/video_feed' />
       <HistoryCard
+        className={styles.detectionBlock}
         personPhoto={photo2} 
         name='Русаков Алексей' 
       />
