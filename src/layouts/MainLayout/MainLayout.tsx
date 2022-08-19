@@ -1,69 +1,61 @@
-import LiveStream from 'components/live-stream/LiveStream';
-import HistoryCard from 'components/history-card/HistoryCard';
-import HorizontalScroll from 'components/horizontal-scroll/HorizontalScroll';
-import photo from './assets/human_picture.jpg'
-import photo1 from './assets/human_picture1.jpg'
-import photo2 from './assets/human_picture2.jpg'
-import styles from './MainLayout.module.css';
+import LiveStream from "components/live-stream/LiveStream";
+import DetectionCard from "components/detection-card/DetectionCard";
+import HistoryCard from "components/history-card/HistoryCard";
+import styles from "./MainLayout.module.css";
 
 type historyItem = {
-  name: string,
-  image?: string,
-}
+  name: string;
+  desc?: string;
+};
 
 const historyItems: historyItem[] = [
   {
-    name: 'Русаков Алексей',
-    image: photo
+    name: "Русаков Алексей Михайлович",
+    desc: "Директор проекта Персона",
   },
   {
-    name: 'Филатов Вячеслав',
-    image: photo2
+    name: "Филатов Вячеслав Валерьевич", 
+    desc: "Оченьоченьоченьоченьдлинноеслово Алгоритмист программист преподаватель",
   },
   {
-    name: 'Болотов Александр',
-    image: photo1
+    name: "Болотов Александр",
+    desc: "Фронтендер",
   },
-  {name: 'Филатов Вячеслав'},
-  {name: 'Болотов Александр'},
-  {name: 'Филатов Вячеслав'},
-  {name: 'Болотов Александр'},
-  {name: 'Филатов Вячеслав'},
-  {name: 'Болотов Александр'},
-  {name: 'Филатов Вячеслав'},
-]
+  { name: "Филатов Вячеслав" },
+  { name: "Болотов Александр" },
+  { name: "Филатов Вячеслав" },
+  { name: "Болотов Александр" },
+  { name: "Филатов Вячеслав" },
+  { name: "Болотов Александр" },
+  { name: "Филатов Вячеслав" },
+];
 
 function MainLayout() {
   return (
     <main className={styles.root}>
-      
-      <LiveStream className={styles.videoBlock}  />
-      <div>.
-      {/* <HistoryCard
-        className={styles.detectionBlock}
-        personPhoto={photo2} 
-        name='Русаков Алексей' 
-      />  */}
+      <div className={styles.mainSection}>
+        <LiveStream className={styles.videoBlock} />
+        <DetectionCard
+          className={styles.detectionBlock}
+          personPhoto="http://localhost:5000/photo/Rusakov.jpg"
+          cadr="http://localhost:5000/photo/test.jpg"
+          name="Русаков Алексей Михайлович"
+          desc="Директор проекта Персона"
+        />
       </div>
-      <HistoryCard
-        className={styles.detectionBlock}
-        personPhoto="http://localhost:5000/photo/Rusakov.jpg"
-        cadr="http://localhost:5000/photo/test.jpg"
-        name='Русаков Алексей Михайлович' 
-        desc="Директор проекта Персона"
-      />
-      {/* <HorizontalScroll className={styles.spinnerBlock}>
+      <section className={styles.spinnerBlock}>
         {historyItems.map((item, index) => {
-          const {image, name} = item;
+          const {desc, name} = item;
           return (
             <HistoryCard 
-            key={name+image+index}
-            personPhoto={image} 
-            name={name}
-          />
+              key={name+desc+index}
+              className={styles.spinnerItem}
+              name={name}
+              desc={desc}
+            />
           );
         })}
-      </HorizontalScroll> */}
+      </section>
     </main>
   );
 }

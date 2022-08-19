@@ -1,12 +1,11 @@
-// import React from "react";
 import Webcam from "react-webcam";
 
 
-type LiveStream = {
+type LiveStreamProps = {
   className?: string
 }
 
-function LiveStream(props: LiveStream) {
+function LiveStream(props: LiveStreamProps) {
   const {className} = props;
   return (
     <Webcam className={className} />
