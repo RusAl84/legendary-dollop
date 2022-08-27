@@ -1,26 +1,19 @@
 import cc from 'classnames';
-import Image from 'components/image-block/Image';
 import styles from './HistoryCard.module.css';
 
 
 type HistoryCardProps = {
   className?: string,
-  personPhoto?: string,
-  cadr?: string,
   name: string,
+  desc?: string,
 }
 
 function HistoryCard(props: HistoryCardProps) {
-  const {className, personPhoto, cadr, name} = props;
+  const {className, name, desc} = props;
   return (
     <section className={cc(className, styles.root)}>
-      <div className={styles.imageBox}>
-        <Image className={styles.image} src={cadr} />
-      </div>
-      <div className={styles.imageBox}>
-        <Image className={styles.image} src={personPhoto} />
-      </div>
       <p className={styles.name}>{name}</p>
+      <p className={styles.desc}>{desc}</p>
     </section>
   );
 }

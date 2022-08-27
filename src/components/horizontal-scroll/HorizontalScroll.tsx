@@ -1,6 +1,5 @@
 import {ReactNode, useCallback, useRef} from 'react';
 import cc from 'classnames';
-import HistoryCard from 'components/history-card/HistoryCard';
 import styles from './HorizontalScroll.module.css';
 import { useEffect } from 'react';
 
