@@ -5,40 +5,25 @@ import HistoryCard from "components/history-card/HistoryCard";
 import styles from "./MainLayout.module.css";
 import API from "../../api/api.js";
 
-type historyItem = {
-  name: string;
-  desc?: string;
+type Item = {
+  id: string | null,
+  name: string | null,
+  cadr: string | null,
+  desc: string | null,
+  photo: string | null,
 };
-
-// const historyItems: historyItem[] = [
-//   {
-//     name: "Русаков Алексей Михайлович",
-//     desc: "Директор проекта Персона",
-//   },
-//   {
-//     name: "Филатов Вячеслав Валерьевич", 
-//     desc: "Оченьоченьоченьоченьдлинноеслово Алгоритмист программист преподаватель",
-//   },
-//   {
-//     name: "Болотов Александр",
-//     desc: "Фронтендер",
-//   },
-//   { name: "Филатов Вячеслав" },
-//   { name: "Болотов Александр" },
-//   { name: "Филатов Вячеслав" },
-//   { name: "Болотов Александр" },
-//   { name: "Филатов Вячеслав" },
-//   { name: "Болотов Александр" },
-//   { name: "Филатов Вячеслав" },
-// ];
 
 let lastMsgID = 0;
 
-// {"capture":"http://127.0.0.1:5000\\capture\\1661797039825_5371237021.jpg","milliseconds":1661797039825,"name":"\u0420\u0443\u0441\u0430\u043a\u043e\u0432 \u0410\u043b\u0435\u043a\u0441\u0435\u0439 \u041c\u0438\u0445\u0430\u0439\u043b\u043e\u0432\u0438\u0447","name_id":4,"photo":"http://127.0.0.1:5000/photo/Rusakov.jpg","timestr":"2022-08-29 21:17:19.825000              "}
+function itemEquals(item1: Item, item2: Item): boolean {
+  const obj1 = {}
+  return JSON.stringify(item1) === JSON.stringify(item2);
+}
 
 function MainLayout() {
-  const [historyItems, setHistoryItems] = useState([]);
-  const [person, setPerson] = useState({
+  const [historyItems, setHistoryItems] = useState<Item[]>([]);
+  const [person, setPerson] = useState<Item>({
+    id: null,
     name: null,
     photo: null,
     cadr: null,
@@ -49,14 +34,16 @@ function MainLayout() {
       try {
         const msg = await API.getDash(lastMsgID);
         if (typeof msg === typeof {}) {
-          const {name, photo, capture, desc} = msg;
-          setHistoryItems([...historyItems, {name}]);
-          setPerson({
+          const {id, name, photo, capture, desc} = msg;
+          const item: Item = {
+            id,
             name,
             photo,
             cadr: capture,
             desc
-          });
+          };
+          setHistoryItems([...historyItems, item]);
+          setPerson(item);
           lastMsgID++;
         }
       } catch (e) {}
@@ -79,10 +66,10 @@ function MainLayout() {
       </div>
       <section className={styles.spinnerBlock}>
         {historyItems.map((item, index) => {
-          const {desc, name} = item;
+          const {id, desc, name} = item;
           return (
             <HistoryCard 
-              key={name+desc+index}
+              key={id}
               className={styles.spinnerItem}
               name={name}
               desc={desc}
