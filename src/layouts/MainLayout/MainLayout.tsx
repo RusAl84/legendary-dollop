@@ -4,21 +4,13 @@ import DetectionCard from "components/detection-card/DetectionCard";
 import HistoryCard from "components/history-card/HistoryCard";
 import styles from "./MainLayout.module.css";
 import API from "../../api/api.js";
+import {itemEquals} from './utils';
+import {Item} from './types';
 
-type Item = {
-  id: string | null,
-  name: string | null,
-  cadr: string | null,
-  desc: string | null,
-  photo: string | null,
-};
 
-let lastMsgID = 0;
-
-function itemEquals(item1: Item, item2: Item): boolean {
-  const obj1 = {}
-  return JSON.stringify(item1) === JSON.stringify(item2);
-}
+let prevID = 0;
+let array = [];
+let isFirst = true;
 
 function MainLayout() {
   const [historyItems, setHistoryItems] = useState<Item[]>([]);
@@ -30,26 +22,52 @@ function MainLayout() {
     desc: null
   });
   useEffect(() => {
-    const intervalCtx = setInterval(async () => {
+    const timeout = setInterval(async () => {
+      const lastMsgID = await API.getID();
       try {
-        const msg = await API.getDash(lastMsgID);
-        if (typeof msg === typeof {}) {
-          const {id, name, photo, capture, desc} = msg;
-          const item: Item = {
-            id,
-            name,
-            photo,
-            cadr: capture,
-            desc
-          };
-          setHistoryItems([...historyItems, item]);
-          setPerson(item);
-          lastMsgID++;
+        if (lastMsgID === 0 && isFirst) {
+          const msg = await API.getDash(lastMsgID);
+          if (typeof msg === typeof {}) {
+            const {id, name, photo, capture, desc} = msg;
+            const item: Item = {
+              id,
+              name,
+              photo,
+              cadr: capture,
+              desc
+            };
+            setPerson(item);
+            array.unshift(item);
+            setHistoryItems(array);
+            isFirst = false;
+          }
         }
-      } catch (e) {}
-    }, 2000);
+        if (prevID === lastMsgID && lastMsgID !== 0) return;
+        console.log(lastMsgID);
+        if (lastMsgID <= 0) return;
+        for (let i = prevID; i < lastMsgID; i++) {
+          const msg = await API.getDash(i);
+          if (typeof msg === typeof {}) {
+            const {id, name, photo, capture, desc} = msg;
+            const item: Item = {
+              id,
+              name,
+              photo,
+              cadr: capture,
+              desc
+            };
+            setPerson(item);
+            array.unshift(item);
+            setHistoryItems(array);
+            isFirst = false;
+          }
+        }
+      } catch (e) {
+      }
+      prevID = lastMsgID;
+    }, 1000);
     return () => {
-      clearInterval(intervalCtx);
+      clearInterval(timeout);
     }
   });
   return (
@@ -70,6 +88,7 @@ function MainLayout() {
           return (
             <HistoryCard 
               key={id}
+              id={id}
               className={styles.spinnerItem}
               name={name}
               desc={desc}
