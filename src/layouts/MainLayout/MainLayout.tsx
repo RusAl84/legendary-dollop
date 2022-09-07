@@ -4,13 +4,11 @@ import DetectionCard from "components/detection-card/DetectionCard";
 import HistoryCard from "components/history-card/HistoryCard";
 import styles from "./MainLayout.module.css";
 import API from "../../api/api.js";
-import {itemEquals} from './utils';
 import {Item} from './types';
 
 
 let prevID = 0;
 let array = [];
-let isFirst = true;
 
 function MainLayout() {
   const [historyItems, setHistoryItems] = useState<Item[]>([]);
@@ -23,29 +21,9 @@ function MainLayout() {
   });
   useEffect(() => {
     const timeout = setInterval(async () => {
-      const lastMsgID = await API.getID();
+      const lastID = await API.getID();
       try {
-        if (lastMsgID === 0 && isFirst) {
-          const msg = await API.getDash(lastMsgID);
-          if (typeof msg === typeof {}) {
-            const {id, name, photo, capture, desc} = msg;
-            const item: Item = {
-              id,
-              name,
-              photo,
-              cadr: capture,
-              desc
-            };
-            setPerson(item);
-            array.unshift(item);
-            setHistoryItems(array);
-            isFirst = false;
-          }
-        }
-        if (prevID === lastMsgID && lastMsgID !== 0) return;
-        console.log(lastMsgID);
-        if (lastMsgID <= 0) return;
-        for (let i = prevID; i < lastMsgID; i++) {
+        for (let i = prevID; i <= lastID; i++) {
           const msg = await API.getDash(i);
           if (typeof msg === typeof {}) {
             const {id, name, photo, capture, desc} = msg;
@@ -59,12 +37,11 @@ function MainLayout() {
             setPerson(item);
             array.unshift(item);
             setHistoryItems(array);
-            isFirst = false;
           }
         }
       } catch (e) {
       }
-      prevID = lastMsgID;
+      prevID = lastID + 1;
     }, 1000);
     return () => {
       clearInterval(timeout);
@@ -88,7 +65,7 @@ function MainLayout() {
           return (
             <HistoryCard 
               key={id}
-              id={id}
+              // id={id}
               className={styles.spinnerItem}
               name={name}
               desc={desc}
