@@ -6,7 +6,6 @@ import styles from "./MainLayout.module.css";
 import API from "../../api/api.js";
 import {Item} from './types';
 
-
 let prevID = 0;
 let array = [];
 
