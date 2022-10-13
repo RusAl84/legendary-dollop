@@ -12,7 +12,7 @@ function Image(props: ImageProps) {
   const {className, src, alt} = props;
   return (
     <img 
-      className={cc(className, !src && styles.noImage)} 
+      className={cc(className, src ? styles.image : styles.noImage)} 
       src={src || noImage} 
       alt={alt || 'Image'} 
     />
