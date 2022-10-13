@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-around;
     padding: var(--top-padding);
-    background: #444;
+    background: var(--secondary-color);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
