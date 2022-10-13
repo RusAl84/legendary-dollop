@@ -16,8 +16,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45%;
-    height: 70%;
+    padding: 5px 0;
+    width: 40%;
+    height: 60%;
     background-color: var(--main-color);
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
 }
@@ -31,7 +32,7 @@
 .desc {
     margin: 0;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .name {
