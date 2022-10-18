@@ -3,8 +3,6 @@ import LiveStream from "components/live-stream/LiveStream";
 import DetectionCard from "components/detection-card/DetectionCard";
 import HistoryCard from "components/history-card/HistoryCard";
 import styles from "./MainLayout.module.css";
-import logo from "../../logo.svg";
-import logo_png from "../../rtu-mirea.png";
 import API from "../../api/api.js";
 import {Item} from './types';
 
@@ -72,7 +70,6 @@ function MainLayout() {
             />
           );
         })}
-        <img className={styles.logo} src={logo_png} alt="MIREA logo" />
       </section>
     </main>
   );

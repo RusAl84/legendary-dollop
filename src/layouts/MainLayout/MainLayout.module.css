@@ -1,6 +1,6 @@
 .root {
-    --video-width: 750px;
-    --video-height: 410px;
+    --video-width: 50vw;
+    --video-height: 60vh;
     --top-padding: 20px;
     display: flex;
     flex-wrap: nowrap;
@@ -46,8 +46,8 @@
 
 .detectionBlock {
     margin-top: -22px;
-    width: calc(var(--video-width) - 10px);
-    height: calc(100vh - var(--video-height) - 2 * var(--top-padding));
+    width: var(--video-width);
+    height: calc(100vh - var(--video-height) - 3 * var(--top-padding));
 }
 
 .spinnerBlock {
@@ -58,6 +58,9 @@
     margin-left: 16px;
     max-height: calc(100vh - 2 * var(--top-padding));
     width: calc(100vw - var(--video-width));
+    background-image: url("../../rtu-mirea.png");
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .spinnerBlock::-webkit-scrollbar {
@@ -91,5 +94,7 @@
     top: 30%;
     left: 10%;
     width: 80%;
-    opacity: 0.3;
+    /* opacity: 0.3; */
+    /* z-index: 0; */
+    border-radius: 20px;
 }
