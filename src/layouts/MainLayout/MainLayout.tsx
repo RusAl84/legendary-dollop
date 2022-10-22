@@ -71,6 +71,8 @@ function MainLayout() {
           );
         })}
       </section>
+      <div className={styles.MIREA_logo} />
+      <div className={styles.KBSP_logo} />
     </main>
   );
 }

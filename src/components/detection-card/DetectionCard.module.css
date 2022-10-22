@@ -1,24 +1,34 @@
 .root {
-    --top-padding: 16px;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-content: space-between;
     min-width: 766px;
-    height: calc(100% - var(--top-padding));
-    padding: var(--top-padding);
+    padding: 32px;
     background: var(--background-color);
     box-shadow: var(--box-shadow-border);
 }
 
-.imageBox {
+.imagesBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    width: 80%;
+    max-height: 70%;
+}
+
+.imageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
+
     padding: 5px 0;
-    width: 40%;
-    height: 60%;
+
+    height: 23vh;
+    width: 15vw;
+    
     background-color: var(--main-color);
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
 }
@@ -26,6 +36,14 @@
 .image {
     max-width: 100%;
     max-height: 100%;
+}
+
+.nameBox {
+    /* margin: 24px 0; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
 }
 
 .name,
@@ -36,15 +54,20 @@
 }
 
 .name {
-    margin-bottom: 8px;
-    width: 100%;
-    font-size: 2vw;
+    margin-bottom: 1vh;
+    padding-bottom: 0.5vh;
+    
+    width: 90%;
+    
+    font-size: 1.7vw;
     font-weight: 600;
+    border-bottom: 2px solid black;
+    border-radius: 0;
 }
 
 .desc {
     overflow: hidden;
     max-width: 90%;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     text-overflow: ellipsis;
 }
