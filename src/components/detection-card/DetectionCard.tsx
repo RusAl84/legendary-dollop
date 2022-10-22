@@ -15,13 +15,11 @@ function DetectionCard(props: DetectionCardProps) {
   const {className, personPhoto, cadr, name, desc} = props;
   return (
     <section className={cc(className, styles.root)}>
-      <div className={styles.root}>
-        <div className={styles.imageBox}>
-          <Image className={styles.image} src={cadr} />
-        </div>
-        <div className={styles.imageBox}>
-          <Image className={styles.image} src={personPhoto} />
-        </div>
+      <div className={styles.imageBox}>
+        <Image className={styles.image} src={cadr} />
+      </div>
+      <div className={styles.imageBox}>
+        <Image className={styles.image} src={personPhoto} />
       </div>
       <div>
         <p className={styles.name}>{name}</p>

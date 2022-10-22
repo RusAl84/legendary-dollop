@@ -1,6 +1,6 @@
 .root {
-    --video-width: 750px;
-    --video-height: 410px;
+    --video-width: 50vw;
+    --video-height: 60vh;
     --top-padding: 20px;
     display: flex;
     flex-wrap: nowrap;
@@ -9,11 +9,10 @@
     background-color: var(--main-color);
     border-radius: 0;
     color: white;
-
     background: linear-gradient(-45deg, #23a6d5, #196BB1, #59A0DC);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -21,32 +20,34 @@
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .mainSection {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 .videoBlock {
     padding: 8px;
     width: var(--video-width);
-    height: var(--video-height);
+    height: calc(var(--video-height) - 2 * var(--top-padding));
 }
 
 .detectionBlock {
-    width: calc(var(--video-width) - 10px);
-    height: calc(100vh - var(--video-height) - 5 * var(--top-padding));
+    margin-top: -22px;
+    width: var(--video-width);
+    height: calc(100vh - var(--video-height) - 3 * var(--top-padding));
 }
 
 .spinnerBlock {
@@ -57,6 +58,9 @@
     margin-left: 16px;
     max-height: calc(100vh - 2 * var(--top-padding));
     width: calc(100vw - var(--video-width));
+    background-image: url("../../rtu-mirea.png");
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .spinnerBlock::-webkit-scrollbar {
@@ -87,7 +91,10 @@
 
 .logo {
     position: absolute;
-    top: 30%; left: 10%;
+    top: 30%;
+    left: 10%;
     width: 80%;
-    opacity: 0.3;
+    /* opacity: 0.3; */
+    /* z-index: 0; */
+    border-radius: 20px;
 }
