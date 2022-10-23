@@ -48,6 +48,14 @@ function MainLayout() {
   });
   return (
     <main className={styles.root}>
+      <section className={styles.logoBox}>  
+        <div className={styles.MIREA_logo} />
+        <div className={styles.KBSP_logo} />
+        <div className={styles.Logo1} />
+        <div className={styles.Logo2} />
+        <div className={styles.Logo3} />
+        <div className={styles.Logo4} />
+      </section>
       <div className={styles.mainSection}>
         <LiveStream className={styles.videoBlock} />
         <DetectionCard
@@ -70,9 +78,8 @@ function MainLayout() {
             />
           );
         })}
+        <div className={styles.spinnerBottomLine} /> 
       </section>
-      <div className={styles.MIREA_logo} />
-      <div className={styles.KBSP_logo} />
     </main>
   );
 }

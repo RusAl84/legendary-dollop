@@ -5,15 +5,16 @@
 .root {
     --video-width: 50vw;
     --video-height: 55vh;
+    --history-width: 35vw;
     --gap: 32px;
 
     overflow: hidden;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
-    padding: var(--gap) 3% var(--gap) 20%;
+    padding: var(--gap);
     max-height: 100vh;
     height: 100vh;
 
@@ -58,19 +59,21 @@
 }
 
 .spinnerBlock {
+    position: relative;
     display: block;
     box-sizing: border-box;
     overflow: hidden;
     overflow-y: scroll;
 
-    margin-left: var(--gap);
+    /* margin-left: var(--gap); */
     
     height: calc(100vh - 2 * var(--gap));
-    width: calc(100vw - var(--video-width) - 16px);
+    width: calc(var(--history-width) - 2 * var(--gap));
     
-    background-image: url("../../rtu-mirea.png");
+    background-image: url("../../assets/rtu-mirea.png");
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: 80%;
     background-color: var(--background-color);
     box-shadow: var(--box-shadow-border);
 }
@@ -91,36 +94,63 @@
     margin: 16px;
 }
 
-.logo {
-    position: absolute;
-    top: 30%;
-    left: 10%;
-    width: 80%;
-    border-radius: 20px;
+.spinnerBottomLine {
+    position: sticky;
+    bottom: 0;
+    height: calc(var(--gap) / 2);
+    width: 100%;
+    background-color: white;
+    border-radius: 0;
+    box-shadow: 0 -8px 16px white;
+}
+
+.logoBox {
+    /* padding: var(--gap); */
+    height: 100%;
+    width: calc(
+        100vw - 
+        var(--video-width) - 
+        var(--history-width) - 
+        2 * var(--gap)
+    );
+    background: white;
+}
+
+.logoBox > div {
+    height: calc(100% / 6);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    border: calc(var(--gap)) solid transparent;
+    box-shadow: 0 2px 1px lightgray;
+    border-radius: 0;
+    z-index: 2;
+}
+
+.logoBox > div:last-child {
+    box-shadow: none;
 }
 
 .MIREA_logo {
-    position: absolute;
-    top: var(--gap);
-    left: calc(3 * var(--gap));
-    width: calc(20% - 6 * var(--gap));
-    height: 30vh;
-    background-image: url("../../MIREA_Gerb_Colour.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100%;
-    z-index: 2;
+    background-image: url("../../assets/MIREA_Gerb_Colour.png");
 }
 
 .KBSP_logo {
-    position: absolute;
-    top: 32vh;
-    left: calc(3 * var(--gap));
-    width: calc(20% - 6 * var(--gap));
-    height: 40vh;
-    background-image: url("../../KBSP_colour.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100%;
-    z-index: 2;
+    background-image: url("../../assets/KBSP_colour.png");
+}
+
+.Logo1 {
+    background-image: url("../../assets/flag-of-uneso.png");
+}
+
+.Logo2 {
+    background-image: url("../../assets/logo2.png");
+}
+
+.Logo3 {
+    background-image: url("../../assets/unnamed.jpg");
+}
+
+.Logo4 {
+    background-image: url("../../assets/logo4.jpg");
 }
