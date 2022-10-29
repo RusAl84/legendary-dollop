@@ -48,14 +48,14 @@ function MainLayout() {
   });
   return (
     <main className={styles.root}>
-      <section className={styles.logoBox}>  
+      {/* <section className={styles.logoBox}>  
         <div className={styles.Logo1} />
         <div className={styles.Logo3} />
         <div className={styles.Logo2} />
         <div className={styles.Logo4} />
         <div className={styles.MIREA_logo} />
         <div className={styles.KBSP_logo} />
-      </section>
+      </section> */}
       <div className={styles.mainSection}>
         <LiveStream className={styles.videoBlock} />
         <DetectionCard
@@ -63,7 +63,8 @@ function MainLayout() {
           personPhoto={person.photo}
           cadr={person.cadr}
           name={person.name}
-          desc={person.desc.substring(0, 125)}
+          desc={person.desc}
+          // desc={person.desc.substring(0, 125)}
         />
       </div>
       <section className={styles.spinnerBlock}>
