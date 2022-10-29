@@ -63,7 +63,7 @@ function MainLayout() {
           personPhoto={person.photo}
           cadr={person.cadr}
           name={person.name}
-          desc={person.desc}
+          desc={person.desc.substring(0, 125)}
         />
       </div>
       <section className={styles.spinnerBlock}>
