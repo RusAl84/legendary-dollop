@@ -3,9 +3,9 @@
 }
 
 .root {
-    --video-width: 60vw;
-    --video-height: 62vh;
-    --history-width: 35vw;
+    --video-width: 54vw;
+    --video-height: 58vh;
+    --history-width: 40vw;
     --gap: 32px;
     overflow: hidden;
     display: flex;
@@ -44,9 +44,8 @@
 
 .videoBlock {
     max-width: var(--video-width);
-    height: calc(var(--video-height) - var(--gap));
+    height: calc(var(--video-height) - 2 * var(--gap));
     background-color: var(--background-color);
-    align-items: center;
 }
 
 .detectionBlock {
